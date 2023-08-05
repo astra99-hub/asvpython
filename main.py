@@ -62,7 +62,7 @@ async def status_task():
         await asyncio.sleep(10)
         await bot.change_presence(activity=discord.Game('error an av.tano'), status=discord.Status.dnd)
         await asyncio.sleep(10)
-        await bot.change_presence(activity=discord.Game(' https://github.com/avtano/Nico.bot'), status=discord.Status.dnd)
+        await bot.change_presence(activity=discord.Game('https://github.com/asvpython/asvpython/tree/main'), status=discord.Status.dnd)
         await asyncio.sleep(10)
 
 
