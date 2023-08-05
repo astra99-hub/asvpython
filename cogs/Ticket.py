@@ -6,7 +6,8 @@ from datetime import datetime
 import os
 import sqlite3
 import  aiosqlite
-
+import chat_exporter
+import io
 
 
 
@@ -282,10 +283,15 @@ class TicketClose(discord.ui.View):
         )
         closeem.set_footer(icon_url=self.bot.user.display_avatar.url, text=self.bot.user)
 
-        logchannel = interaction.guild.get_channel(logchannelid)
+        loguser = interaction.guild.get_member(interaction.user)
         logger = Logger(interaction.channel)
         await logger.create_log_file()
-        await logger.send_log_file(logchannel)
+        await logger.send_log_file(interaction.user)
+
+
+
+
+
         embed2 = discord.Embed(
             title=f"Chat erfolgreich exportiert",
             description=f"Geschlossen von {interaction.user.mention} 🔒\n```{interaction.channel.name}```",
@@ -295,7 +301,7 @@ class TicketClose(discord.ui.View):
         embed2.set_footer(icon_url=self.bot.user.display_avatar, text=self.bot.user)
         embed2.set_image(
             url="https://cdn.discordapp.com/attachments/1077917507568013332/1078262295798497280/long.gif")
-        await logchannel.send(embed=embed2)
+        await interaction.user.send(embed=embed2)
 
         await interaction.response.edit_message(view=self)
         await interaction.followup.send(embed=closeem)
@@ -314,6 +320,8 @@ class TicketClose(discord.ui.View):
 
         await interaction.response.edit_message(view=self)
         await interaction.followup.send(embed=ruleem, ephemeral=True)
+
+
 
 
 class ModalRateUs(discord.ui.Modal):
