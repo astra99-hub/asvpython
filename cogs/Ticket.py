@@ -101,7 +101,7 @@ class dropdownticket(discord.ui.View):
 
     options = [
         discord.SelectOption(label="Teambewerbung", description="Bewerbe dich im Team", emoji="🎫", value="1"),
-        discord.SelectOption(label="Discord Bots Support", description="Wenn Sie einen Bot kaufen möchten", emoji="🎫", value="2"),
+        discord.SelectOption(label="Discord Bots Support", description="discord bot helfe", emoji="🎫", value="2"),
         discord.SelectOption(label="Support Ticket", description="mach ein Support", emoji="🎫", value="5"),
     ]
 
