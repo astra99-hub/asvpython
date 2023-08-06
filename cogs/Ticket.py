@@ -6,6 +6,8 @@ from datetime import datetime
 import os
 import sqlite3
 import  aiosqlite
+import chat_exporter
+import io
 
 
 
